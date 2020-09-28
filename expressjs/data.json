@@ -1,0 +1,224 @@
+{
+    "chargers": [
+        {
+            "id": 1,
+            "lat": 65.059386, 
+            "long": 25.466103,
+            "City": "Oulu",
+            "Street": "Yilopisto",
+            "Charger_Type": "Slow Type 2 Connector",
+            "Charger_availability": "available"
+            
+
+
+        },
+        {
+            "id": 2,
+            "lat": 65.059386, 
+            "long": 25.462103,
+            "City": "Oulu",
+            "Street": "Yilopisto",
+            "Charger_Type": "Fast CCS connector",
+            "Charger_availability": "occupied"
+
+
+        },
+        {
+            "id": 3,
+            "lat": 60.314049,
+            "long": 24.966789,
+            "City": "Helsinki",
+            "Street": "Airport",
+            "Charger_Type": "Fast CCS connector",
+            "Charger_availability": "available"
+
+
+        },
+        {
+            "id": 4,
+            "lat": 61.498827, 
+            "long": 23.760083,
+            "City": "Tampere",
+            "Street": "City Centre",
+            "Charger_Type": "Fast CCS connector",
+            "Charger_availability": "available"
+
+
+        },
+        {
+            "id": 5,
+            "lat": 65.737124,
+            "long": 24.572590,
+            "City": "Kemi",
+            "Street": "Railway Station",
+            "Charger_Type": "Fast CCS connector",
+            "Charger_availability": "available"
+
+
+        },
+        {
+            "id": 6,
+            "lat": 66.544489, 
+            "long": 25.860855,
+            "City": "Rovaniemi",
+            "Street": "Santas Village",
+            "Charger_Type": "Fast CCS connector",
+            "Charger_availability": "available"
+
+
+        },
+        
+        {
+            "id": 7,
+            "lat": 64.930192, 
+            "long":  25.382460,
+            "City": "Oulu",
+            "Street": "Airport",
+            "Charger_Type": "Fast CCS connector",
+            "Charger_availability": "available"
+
+
+        },{
+        "id": 8,
+            "lat": 60.542161, 
+            "long":  26.977484 ,
+            "City": "Kotka",
+            "Street": "Gas station",
+            "Charger_Type": "Slow Type 2 Connector",
+            "Charger_availability": "available"
+        },
+        {
+            "id": 9,
+            "lat": 64.930192, 
+            "long": 25.387460,
+            "City": "Oulu",
+            "Street": "Airport",
+            "Charger_Type": "Slow Type 2 Connector",
+            "Charger_availability": "available"
+
+
+        },
+        {
+            "id": 10,
+            "lat": 65.032266,  
+            "long": 25.413638,
+            "City": "Oulu",
+            "Street": "Nalikari Beach",
+            "Charger_Type": "Fast CCS connector",
+            "Charger_availability": "available"
+
+
+        },
+        {
+            "id": 11,
+            "lat": 65.032266,  
+            "long": 25.418638,
+            "City": "Oulu",
+            "Street": "Nalikari Beach",
+            "Charger_Type": "Slow Type 2 Connector",
+            "Charger_availability": "available"
+
+
+        },
+        
+        {
+            "id": 12,
+            "lat": 65.958416,  
+            "long": 29.158781,
+            "City": "Kuusamo",
+            "Street": "Prisma",
+            "Charger_Type": "Fast CCS connector",
+            "Charger_availability": "available"
+
+
+        },
+        {
+            "id": 13,
+            "lat": 60.456320,  
+            "long": 22.260912,
+            "City": "Turku",
+            "Street": "Railway Station",
+            "Charger_Type": "Slow Type 2 Connector",
+            "Charger_availability": "available"
+
+
+        },
+        {
+            "id": 14,
+            "lat": 60.204270,  
+            "long": 24.658305,
+            "City": "Espoo",
+            "Street": "City Centre",
+            "Charger_Type": "Fast CCS connector",
+            "Charger_availability": "available"
+
+
+        },
+        {
+            "id": 15,
+            "lat": 60.204270,  
+            "long": 24.654305,
+            "City": "Espoo",
+            "Street": "City Centre",
+            "Charger_Type": "Slow Type 2 Connector",
+            "Charger_availability": "available"
+
+
+        },
+        {
+            "id": 16,
+            "lat": 60.170832,  
+            "long": 24.939716,
+            "City": "Helsinki",
+            "Street": "Railway Station",
+            "Charger_Type": "Fast CCS connector",
+            "Charger_availability": "available"
+
+
+        },
+        {
+            "id": 17,
+            "lat": 60.380959, 
+            "long": 23.614778 ,
+            "City": "Salo",
+            "Street": "Highway gas station",
+            "Charger_Type": "Fast CCS connector",
+            "Charger_availability": "available"
+
+
+        },
+        {
+            "id": 18,
+            "lat": 60.380959, 
+            "long": 23.618778 ,
+            "City": "Salo",
+            "Street": "Highway gas station",
+            "Charger_Type": "Slow Type 2 Connector",
+            "Charger_availability": "available"
+
+
+        },
+        {
+            "id": 19,
+            "lat": 63.074499,  
+            "long": 25.865731,
+            "City": "Viitasaari",
+            "Street": "ABC Gas Station",
+            "Charger_Type": "Fast CCS connector",
+            "Charger_availability": "available"
+
+
+        },
+        {
+            "id": 20,
+            "lat": 64.137208, 
+            "long": 25.369285 ,
+            "City": "Haapavesi",
+            "Street": "Neste Oil",
+            "Charger_Type": "Fast CCS connector",
+            "Charger_availability": "available"
+
+
+        }
+    ]
+}

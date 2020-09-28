@@ -1,0 +1,11 @@
+.location{
+    display: flex;
+    width: auto;
+    color: black;
+    background-color:lightgreen;
+    height: 70px;
+    align-items: center;
+    margin-top: 15px;
+    
+    border: 1px solid lightgrey;
+}
