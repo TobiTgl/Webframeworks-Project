@@ -9,15 +9,17 @@
     height: 70px;
     align-items: center;
    
-    
-
 }
 
 .subCat{
     
     padding: 30px;
     border: 1px solid;
+    text-decoration: none;
 
+}
+:active{
+    text-decoration: none;
 }
 
 .brand {
@@ -27,16 +29,12 @@
 
 }
 
-.rightmenu {
-   
-    float: right;
-    display: flex;
-    width: auto;
-    color: white;
-    height: 70px;
-    align-items: center;
-}
+
 
 .searchbar {
     margin-left: 10px;
+}
+.login {
+    margin-left: 10px;
+        
 }

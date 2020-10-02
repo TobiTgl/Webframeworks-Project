@@ -5,9 +5,10 @@ export default function Charger(props) {
     return (
         <div className={style.location}>
             
-            <b> {props.City}&nbsp;</b>
-            <b> {props.Street}&nbsp;</b>
-           
+            <p> <b>Location: {props.City}&nbsp; 
+                {props.Street}<br/></b>
+                Charging type: {props.Charger_Type}<br/>
+                Status: {props.Charger_availability}&nbsp;</p>
         </div>
     )
 }

@@ -5,7 +5,11 @@ import Menu from './components/Menu';
 import axios from 'axios';
 import GoogleMaps from './components/GoogleMaps';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
-
+import Login from './components/Login';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import SignUp from './components/SignUp';
+import ChargingHistory from './components/ChargingHistory';
+import ProtectedRoute from './components/ProtectedRoute';
 
 
 
@@ -15,8 +19,8 @@ class App extends React.Component {
     super(props);
     this.state = {
       chargerarr:[],
-      
-  
+      chargerSearch:"",
+      isAuthenticated: true,
 
     }
   }
@@ -29,18 +33,28 @@ class App extends React.Component {
       });
   }
 
+  onSearchFieldChange = (event) => {
+    console.log('Keyboard event');
+    console.log(event.target.value);
+    this.setState({ chargerSearch: event.target.value });
+  }
+
 
 
 
 render(){
   return(
     <>
-      <Menu/>
-      <GoogleMaps chargers={this.state.chargerarr}/>
+
       
-      <ChargerList chargers={this.state.chargerarr}/>
-      
-      
+      <Router>
+        <Menu onChange={ this.onSearchFieldChange }/>
+        <Route exact path="/" render={props => <GoogleMaps chargers={this.state.chargerarr.filter((charger) => charger.City.includes(this.state.chargerSearch)|| charger.Charger_Type.includes(this.state.chargerSearch))}/>}></Route>
+        <Route exact path="/" render={props => <ChargerList chargers={this.state.chargerarr.filter((charger) => charger.City.includes(this.state.chargerSearch)|| charger.Charger_Type.includes(this.state.chargerSearch))}/>}></Route>
+        <Route exact path="/signup" render={props => <SignUp/>}></Route>
+        <ProtectedRoute isAuthenticated={this.state.isAuthenticated} path="/history" exact render={(props)=><ChargingHistory/>}></ProtectedRoute>
+      </Router>  
+        
     </>
   )
 }

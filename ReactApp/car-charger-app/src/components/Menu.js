@@ -1,20 +1,31 @@
 import React from 'react'
 import styles from './Menu.module.css'
+import { BrowserRouter as Router,Link } from 'react-router-dom';
 
-export default function Menu() {
+export default function Menu(props) {
     return (
+
+        
         <div className= { styles.headerBackground }>
             <div className={styles.container}>
-                <a className={styles.brand } > GreenFuel </a>
-                <a className={styles.subCat } >Map </a>
-                <a className={styles.subCat }>Login</a>
-                <a className={styles.subCat }> SignUp</a>
-                <input className={styles.searchbar } type="text" placeholder="Search for chargers"></input>
-                <button>search</button>
+                <div className={styles.brand } > GreenFuel </div>
+                <Link to="/"><div className={styles.subCat } >Map </div></Link>
+                <Link to="/history"><div className={styles.subCat } >Charging History </div></Link>
+                
+                <Link to="/signup"><div className={styles.subCat }> SignUp</div></Link>
+                <input className={styles.searchbar } type="text" placeholder="Search for chargers" onChange={ (event)=> props.onChange(event)}></input>
+                
+
+                <input className={styles.login } type="text" placeholder="Username"></input>
+                
+                <input type="password" placeholder="Password"></input>
+                
+                <button className={styles.login }>Login</button> 
                
             
             </div>
             
         </div>
+        
     )
 }
