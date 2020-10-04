@@ -8,7 +8,8 @@ export default function Charger(props) {
             <p> <b>Location: {props.City}&nbsp; 
                 {props.Street}<br/></b>
                 Charging type: {props.Charger_Type}<br/>
-                Status: {props.Charger_availability}&nbsp;</p>
+                Status: {props.Charger_availability}<br/>
+                Price: {props.price}</p>
         </div>
     )
 }

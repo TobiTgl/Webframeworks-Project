@@ -7,11 +7,25 @@ const {v4: uuidv4 } = require('uuid')
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
 const passportHttp = require('passport-http');
+const cors = require('cors');
 
-let users=[];
+let users=[{
+    id: uuidv4(),
+    username: "TobiT",
+    password: "$2a$08$dTjmxh6FxxT5OAd/WCYHX.Ty78AedJ0x52Hh0dPkp1MdiQwaKg0am",
+    email: "JohnDoe@example.com",
+    userChargingHistory: {Location: "Oulu", Charger_Type: "Fast", duration: 30, price: 10}
+},{
+
+    id: uuidv4(),
+    username: "JohnDoe",
+    password: "$2a$08$cU47bKxiGGoIh6kuI3pwd.qUbzPiUSBcc17gdGrD1ZRJSxmyY0iPK",
+    email: "JohnDoe@example.com",
+    userChargingHistory: {Location: "Espoo", Charger_Type: "Slow", duration: 10, price: 2}
+}];
 
 app.use(bodyParser.json());
-app.use('/static', express.static('public'))
+app.use(cors());
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
@@ -39,6 +53,10 @@ app.get('/users', (req, res) => {
   res.send(users);
 });
 
+app.get('/users/:id', (req, res) => {
+  res.send(users);
+});
+
 passport.use(new passportHttp.BasicStrategy(function (username, password, done){
   const userResult = users.find(user => user.username === username);
   if(userResult == undefined){
@@ -52,7 +70,7 @@ passport.use(new passportHttp.BasicStrategy(function (username, password, done){
   done(null, userResult);
 }));
 
-app.get('/protectedresource', passport.authenticate('basic', {session: false}), (req, res)=>{
+app.post('/login', passport.authenticate('basic', {session: false}), (req, res)=>{
   console.log('test');
   res.sendStatus(200);
 })
