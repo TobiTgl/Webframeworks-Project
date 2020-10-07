@@ -1,0 +1,22 @@
+.menu {
+    width: 400px;
+    height: 100px;
+    overflow-y: auto;
+  }
+  
+  .menu a {
+    background-color: #eee;
+    color: black;
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+  }
+  
+  .menu a:hover {
+    background-color: #ccc;
+  }
+  
+  .menu a.active {
+    background-color: #4CAF50;
+    color: white;
+  }

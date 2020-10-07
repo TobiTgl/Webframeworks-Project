@@ -8,6 +8,7 @@ import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import Login from './components/Login';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import SignUp from './components/SignUp';
+import Charge from './components/Charge';
 import ChargingHistory from './components/ChargingHistory';
 import ProtectedRoute from './components/ProtectedRoute';
 
@@ -27,7 +28,9 @@ class App extends React.Component {
       signupUsername:"",
       signupPassword:"",
       signupEmail: "",
-      userChargingHistory: {Location: "", Charger_Type: "", duration: 0, price: 0},
+      userChargingHistory: {Date: "", Location: "", Charger_Type: "", duration: 0, price: 0},
+      chargeTimer: 0,
+      selectedCharger: "",
 
     }
   }
@@ -37,15 +40,12 @@ class App extends React.Component {
     axios.get('http://localhost:4000/chargers')//this is a promise object
       .then((response) => { //javascrip promise --then
         this.setState({ chargerarr: response.data })
+      
       });
+      
   }
 
-  userChargeHistory = (id) => {
-    axios.get('http://localhost:4000/users/:'+id)//this is a promise object
-    .then((response) => { //javascrip promise --then
-      this.setState({ chargeHistory: response.data })
-    });
-  }
+  
 
   onSearchFieldChange = (event) => {
     console.log('Keyboard event');
@@ -78,7 +78,7 @@ class App extends React.Component {
   }
 
 
-  onLogin = () => {
+  onLogin = (currentUser) => {
     axios.post('http://localhost:4000/login', 
                 {}, 
                 {auth:{
@@ -87,10 +87,18 @@ class App extends React.Component {
       }})
     .then((response) => {
       console.log('login successful');
-      this.setState({ isAuthenticated: true })
+      this.setState({ isAuthenticated: true });
+      
     })
     .catch(error=>{console.log(error)})
     
+    axios.get('http://localhost:4000/users/'+currentUser)//this is a promise object
+    .then((response) => { //javascrip promise --then
+      this.setState({ chargeHistory: response.data.userChargingHistory })
+      console.log(this.state.typedUsername)
+      console.log(response.data)
+      console.log(this.state.chargeHistory)
+    });
   }
 
   onSignup = () => {
@@ -110,21 +118,50 @@ class App extends React.Component {
     }
   }
 
-  
+  onChargeStop=()=>{
+    
+    axios.post('http://localhost:4000/TobiT/charge',
+    {
+      Location: "Test",//this.state.selectedCharger.City
+      Charger_Type: "Test",//this.state.selectedCharger.Charger_Type
+      duration: 69, //this.state.elapsedtime
+      price: 96 //this.state.selectedCharger.price*this.state.elapsedtime
+    })
+    .then(response =>{
+      console.log('Charge successful');
+    })
+    .catch(error=>{console.log(error)})
+    
+  }
+
+  chargeTimer=()=>{
+  this.state.chargeTimer++
+
+  }
+
+  onChargerSelect=(id)=>{
+    console.log('click')
+    console.log(id)
+    //let result = this.state.chargerarr.find(u=> u.id === id);
+    //this.setState({selectedCharger: result})
+  }
+
 
 
 
 render(){
+  
   return(
     <>
 
       
       <Router>
-        <Menu onChange={ this.onSearchFieldChange } usernameChange={ this.onUsernameChange} passwordChange={ this.onPasswordChange}  userLogin={this.onLogin}/>
-        <Route exact path="/" render={props => <GoogleMaps chargers={this.state.chargerarr.filter((charger) => charger.City.includes(this.state.chargerSearch)|| charger.Charger_Type.includes(this.state.chargerSearch))}/>}></Route>
+        <Menu onChange={ this.onSearchFieldChange } currentUser={this.state.typedUsername} usernameChange={ this.onUsernameChange} passwordChange={ this.onPasswordChange}  userLogin={this.onLogin}/>
+        <Route exact path="/" render={props => <GoogleMaps chargers ={this.state.chargerarr.filter((charger) => charger.City.includes(this.state.chargerSearch)|| charger.Charger_Type.includes(this.state.chargerSearch))}/>}></Route>
         <Route exact path="/" render={props => <ChargerList chargers={this.state.chargerarr.filter((charger) => charger.City.includes(this.state.chargerSearch)|| charger.Charger_Type.includes(this.state.chargerSearch))}/>}></Route>
         <Route exact path="/signup" render={props => <SignUp signUpClick= {this.onSignup} signUpUsername={this.onSignUpUsernameChange} signUpPassword={this.onSignUpPasswordChange} signUpEmail={this.onSignUpEmailChange}/>}></Route>
-        <ProtectedRoute isAuthenticated={this.state.isAuthenticated} path="/history" exact render={(props)=><ChargingHistory/>}></ProtectedRoute>
+        <ProtectedRoute isAuthenticated={this.state.isAuthenticated} path="/history" exact render={(props)=><ChargingHistory  history={this.state.chargeHistory}/>}></ProtectedRoute>
+        <Route isAuthenticated={this.state.isAuthenticated} path="/charge" exact render={(props)=><Charge charger={this.state.chargerarr} id={this.state.chargerarr.id} selectedCharger={this.selectedCharger} onChargerSelect={this.onChargerSelect} elapsedtime={this.state.chargeTimer} chargeTimer={this.chargeTimer}/*onChargeStop={this.onChargeStop}*/ />}></Route>
       </Router>  
         
     </>

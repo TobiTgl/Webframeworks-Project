@@ -1,11 +1,10 @@
 {
     "chargers": [
         {
-            "id": 1,
+            "id": "OYS1",
             "lat": 65.059386, 
             "long": 25.466103,
-            "City": "Oulu",
-            "Street": "Yilopisto",
+            "City": "Oulu Yilopisto",
             "Charger_Type": "Slow Type 2 Connector",
             "Charger_availability": "available",
             "price": "free"
@@ -14,11 +13,10 @@
 
         },
         {
-            "id": 2,
+            "id": "OYF1",
             "lat": 65.059386, 
             "long": 25.462103,
-            "City": "Oulu",
-            "Street": "Yilopisto",
+            "City": "Oulu Yilopisto",
             "Charger_Type": "Fast CCS connector",
             "Charger_availability": "occupied",
             "price": "0,18€/kWh"
@@ -26,11 +24,10 @@
 
         },
         {
-            "id": 3,
+            "id": "HAF1",
             "lat": 60.314049,
             "long": 24.966789,
-            "City": "Helsinki",
-            "Street": "Airport",
+            "City": "Helsinki Airport",
             "Charger_Type": "Fast CCS connector",
             "Charger_availability": "available",
             "price": "0,18€/kWh"
@@ -38,11 +35,10 @@
 
         },
         {
-            "id": 4,
+            "id": "TCF1",
             "lat": 61.498827, 
             "long": 23.760083,
-            "City": "Tampere",
-            "Street": "City Centre",
+            "City": "Tampere City Centre",
             "Charger_Type": "Fast CCS connector",
             "Charger_availability": "available",
             "price": "0,18€/kWh"
@@ -50,11 +46,10 @@
 
         },
         {
-            "id": 5,
+            "id": "KRF1",
             "lat": 65.737124,
             "long": 24.572590,
-            "City": "Kemi",
-            "Street": "Railway Station",
+            "City": "Kemi Railway Station",
             "Charger_Type": "Fast CCS connector",
             "Charger_availability": "available",
             "price": "0,18€/kWh"
@@ -62,11 +57,10 @@
 
         },
         {
-            "id": 6,
+            "id": "RSF1",
             "lat": 66.544489, 
             "long": 25.860855,
-            "City": "Rovaniemi",
-            "Street": "Santas Village",
+            "City": "Rovaniemi Santa Clause Village",
             "Charger_Type": "Fast CCS connector",
             "Charger_availability": "available",
             "price": "0,18€/kWh"
@@ -75,32 +69,29 @@
         },
         
         {
-            "id": 7,
+            "id": "OAF1",
             "lat": 64.930192, 
             "long":  25.382460,
-            "City": "Oulu",
-            "Street": "Airport",
+            "City": "Oulu Airport",
             "Charger_Type": "Fast CCS connector",
             "Charger_availability": "available",
             "price": "0,18€/kWh"
 
 
         },{
-        "id": 8,
+            "id": "KGS1",
             "lat": 60.542161, 
             "long":  26.977484 ,
-            "City": "Kotka",
-            "Street": "Gas station",
+            "City": "Kotka gas station",
             "Charger_Type": "Slow Type 2 Connector",
             "Charger_availability": "available",
             "price": "0,20€/min"
         },
         {
-            "id": 9,
+            "id": "OAS1",
             "lat": 64.930192, 
             "long": 25.387460,
-            "City": "Oulu",
-            "Street": "Airport",
+            "City": "Oulu Airport",
             "Charger_Type": "Slow Type 2 Connector",
             "Charger_availability": "available",
             "price": "free"
@@ -108,11 +99,10 @@
 
         },
         {
-            "id": 10,
+            "id": "ONF1",
             "lat": 65.032266,  
             "long": 25.413638,
-            "City": "Oulu",
-            "Street": "Nalikari Beach",
+            "City": "Oulu Nalikari Beach",
             "Charger_Type": "Fast CCS connector",
             "Charger_availability": "available",
             "price": "0,18€/kWh"
@@ -120,11 +110,10 @@
 
         },
         {
-            "id": 11,
+            "id": "ONS1",
             "lat": 65.032266,  
             "long": 25.418638,
-            "City": "Oulu",
-            "Street": "Nalikari Beach",
+            "City": "Oulu Nalikari Beach",
             "Charger_Type": "Slow Type 2 Connector",
             "Charger_availability": "available",
             "price": "free"
@@ -133,11 +122,10 @@
         },
         
         {
-            "id": 12,
+            "id": "KPF1",
             "lat": 65.958416,  
             "long": 29.158781,
-            "City": "Kuusamo",
-            "Street": "Prisma",
+            "City": "Kuusamo Prisma",
             "Charger_Type": "Fast CCS connector",
             "Charger_availability": "available",
             "price": "0,18€/kWh"
@@ -145,11 +133,10 @@
 
         },
         {
-            "id": 13,
+            "id": "TRS1",
             "lat": 60.456320,  
             "long": 22.260912,
-            "City": "Turku",
-            "Street": "Railway Station",
+            "City": "Turku Railway Station",
             "Charger_Type": "Slow Type 2 Connector",
             "Charger_availability": "available",
             "price": "0,20€/min"
@@ -157,11 +144,10 @@
 
         },
         {
-            "id": 14,
+            "id": "ECF1",
             "lat": 60.204270,  
             "long": 24.658305,
-            "City": "Espoo",
-            "Street": "City Centre",
+            "City": "Espoo City Centre",
             "Charger_Type": "Fast CCS connector",
             "Charger_availability": "available",
             "price": "0,18€/kWh"
@@ -169,11 +155,10 @@
 
         },
         {
-            "id": 15,
+            "id": "ECS1",
             "lat": 60.204270,  
             "long": 24.654305,
-            "City": "Espoo",
-            "Street": "City Centre",
+            "City": "Espoo City Centre",
             "Charger_Type": "Slow Type 2 Connector",
             "Charger_availability": "available",
             "price": "0,20€/min"
@@ -181,11 +166,10 @@
 
         },
         {
-            "id": 16,
+            "id": "HRF1",
             "lat": 60.170832,  
             "long": 24.939716,
-            "City": "Helsinki",
-            "Street": "Railway Station",
+            "City": "Helsinki Railway Station",
             "Charger_Type": "Fast CCS connector",
             "Charger_availability": "available",
             "price": "0,18€/kWh"
@@ -193,11 +177,10 @@
 
         },
         {
-            "id": 17,
+            "id": "SHF1",
             "lat": 60.380959, 
             "long": 23.614778 ,
-            "City": "Salo",
-            "Street": "Highway gas station",
+            "City": "Salo gas station",
             "Charger_Type": "Fast CCS connector",
             "Charger_availability": "available",
             "price": "0,18€/kWh"
@@ -205,11 +188,10 @@
 
         },
         {
-            "id": 18,
+            "id": "SHS1",
             "lat": 60.380959, 
             "long": 23.618778 ,
-            "City": "Salo",
-            "Street": "Highway gas station",
+            "City": "Salo gas station",
             "Charger_Type": "Slow Type 2 Connector",
             "Charger_availability": "available",
             "price": "0,20€/min"
@@ -217,11 +199,10 @@
 
         },
         {
-            "id": 19,
+            "id": "VAF1",
             "lat": 63.074499,  
             "long": 25.865731,
-            "City": "Viitasaari",
-            "Street": "ABC Gas Station",
+            "City": "Viitasaari ABC gas station",
             "Charger_Type": "Fast CCS connector",
             "Charger_availability": "available",
             "price": "0,18€/kWh"
@@ -229,11 +210,10 @@
 
         },
         {
-            "id": 20,
+            "id": "HNF1",
             "lat": 64.137208, 
             "long": 25.369285 ,
-            "City": "Haapavesi",
-            "Street": "Neste Oil",
+            "City": "Haapavesi Neste Oil",
             "Charger_Type": "Fast CCS connector",
             "Charger_availability": "available",
             "price": "0,18€/kWh"

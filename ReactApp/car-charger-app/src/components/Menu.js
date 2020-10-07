@@ -10,6 +10,7 @@ export default function Menu(props) {
             <div className={styles.container}>
                 <div className={styles.brand } > GreenFuel </div>
                 <Link to="/"><div className={styles.subCat } >Map </div></Link>
+                <Link to="/charge"><div className={styles.subCat } >Select charger </div></Link>
                 <Link to="/history"><div className={styles.subCat } >Charging History </div></Link>
                 
                 <Link to="/signup"><div className={styles.subCat }> SignUp</div></Link>
@@ -20,7 +21,7 @@ export default function Menu(props) {
                 
                 <input type="password" placeholder="Password" onChange={ (event)=> props.passwordChange(event)}></input>
                 
-                <button className={styles.login } onClick={()=>props.userLogin()}>Login</button> 
+                <button className={styles.login } onClick={()=>props.userLogin(props.currentUser)}>Login</button> 
                
             
             </div>
