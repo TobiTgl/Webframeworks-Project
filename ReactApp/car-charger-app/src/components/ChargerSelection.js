@@ -5,7 +5,6 @@ export default function ChargerSelection(props) {
         <a onClick={()=>props.onChargerSelect(props.id)}>
             {props.City +' '} 
             {props.Charger_Type}
-            
         </a>
     )
 }

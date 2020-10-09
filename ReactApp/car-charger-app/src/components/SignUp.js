@@ -10,7 +10,9 @@ export default function SignUp(props) {
                 <input className={styles.inputfield} type="text" placeholder="Username" onChange={(event)=>props.signUpUsername(event)}></input>
                 <input className={styles.inputfield} type="password" placeholder="Password" onChange={(event)=>props.signUpPassword(event)}></input>
                 <input className={styles.inputfield} type="text" placeholder="Email" onChange={(event)=>props.signUpEmail(event)}></input>
-                <button className={styles.button} onClick={()=>props.signUpClick()}>Sign Up</button>
+                <button className={styles.button} onClick={()=>props.signUpClick()}>
+                    Sign Up
+                </button>
             </div>
         </div>
     )

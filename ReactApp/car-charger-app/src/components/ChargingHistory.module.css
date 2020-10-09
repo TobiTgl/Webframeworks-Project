@@ -1,3 +1,22 @@
-.history{
+.historyContainer{
+    font-weight: bold;
+    font-size: 16px;
+    background-color: lightgreen;  
     color: black;
+    padding: 10px;
+    text-align: center;
+      
+}
+
+.history{
+    margin: auto;
+    margin-top: 8px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px;
+    width: 300px;
+    border:2px solid;
+    color: black;
+    
 }

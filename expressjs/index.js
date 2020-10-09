@@ -9,7 +9,7 @@ const passport = require('passport');
 const passportHttp = require('passport-http');
 const cors = require('cors');
 
-let date = new Date();
+let date = null;
 
 let users=[{
     id: uuidv4(),
@@ -40,9 +40,12 @@ app.get('/chargers', (req, res) => {
 
 app.post('/:username/charge', (req,res) =>{
   const result = users.find(u=> u.username === req.params.username);
+  date = new Date;
+  let dateformat= date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes()+':' + date.getSeconds();
 
   result.userChargingHistory.push({
-    Date: date,
+    
+    Date: dateformat,
     Location: req.body.Location,
     Charger_Type: req.body.Charger_Type, 
     duration: req.body.duration, 
