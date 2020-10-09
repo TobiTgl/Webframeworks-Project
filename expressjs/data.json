@@ -7,7 +7,7 @@
             "City": "Oulu Yilopisto",
             "Charger_Type": "Slow Type 2 Connector",
             "Charger_availability": "available",
-            "price": "free"
+            "price": 0
             
 
 
@@ -18,8 +18,8 @@
             "long": 25.462103,
             "City": "Oulu Yilopisto",
             "Charger_Type": "Fast CCS connector",
-            "Charger_availability": "occupied",
-            "price": "0,18€/kWh"
+            "Charger_availability": "available",
+            "price": 0.006666
 
 
         },
@@ -30,7 +30,7 @@
             "City": "Helsinki Airport",
             "Charger_Type": "Fast CCS connector",
             "Charger_availability": "available",
-            "price": "0,18€/kWh"
+            "price": 0.006666
 
 
         },
@@ -41,7 +41,7 @@
             "City": "Tampere City Centre",
             "Charger_Type": "Fast CCS connector",
             "Charger_availability": "available",
-            "price": "0,18€/kWh"
+            "price": 0.006666
 
 
         },
@@ -52,7 +52,7 @@
             "City": "Kemi Railway Station",
             "Charger_Type": "Fast CCS connector",
             "Charger_availability": "available",
-            "price": "0,18€/kWh"
+            "price": 0.006666
 
 
         },
@@ -63,7 +63,7 @@
             "City": "Rovaniemi Santa Clause Village",
             "Charger_Type": "Fast CCS connector",
             "Charger_availability": "available",
-            "price": "0,18€/kWh"
+            "price": 0.006666
 
 
         },
@@ -75,7 +75,7 @@
             "City": "Oulu Airport",
             "Charger_Type": "Fast CCS connector",
             "Charger_availability": "available",
-            "price": "0,18€/kWh"
+            "price": 0.006666
 
 
         },{
@@ -85,7 +85,7 @@
             "City": "Kotka gas station",
             "Charger_Type": "Slow Type 2 Connector",
             "Charger_availability": "available",
-            "price": "0,20€/min"
+            "price": 0.003333
         },
         {
             "id": "OAS1",
@@ -94,7 +94,7 @@
             "City": "Oulu Airport",
             "Charger_Type": "Slow Type 2 Connector",
             "Charger_availability": "available",
-            "price": "free"
+            "price": 0
 
 
         },
@@ -105,7 +105,7 @@
             "City": "Oulu Nalikari Beach",
             "Charger_Type": "Fast CCS connector",
             "Charger_availability": "available",
-            "price": "0,18€/kWh"
+            "price": 0.006666
 
 
         },
@@ -116,7 +116,7 @@
             "City": "Oulu Nalikari Beach",
             "Charger_Type": "Slow Type 2 Connector",
             "Charger_availability": "available",
-            "price": "free"
+            "price": 0
 
 
         },
@@ -128,7 +128,7 @@
             "City": "Kuusamo Prisma",
             "Charger_Type": "Fast CCS connector",
             "Charger_availability": "available",
-            "price": "0,18€/kWh"
+            "price": 0.006666
 
 
         },
@@ -139,7 +139,7 @@
             "City": "Turku Railway Station",
             "Charger_Type": "Slow Type 2 Connector",
             "Charger_availability": "available",
-            "price": "0,20€/min"
+            "price": 0.003333
 
 
         },
@@ -150,7 +150,7 @@
             "City": "Espoo City Centre",
             "Charger_Type": "Fast CCS connector",
             "Charger_availability": "available",
-            "price": "0,18€/kWh"
+            "price": 0.006666
 
 
         },
@@ -161,7 +161,7 @@
             "City": "Espoo City Centre",
             "Charger_Type": "Slow Type 2 Connector",
             "Charger_availability": "available",
-            "price": "0,20€/min"
+            "price": 0.003333
 
 
         },
@@ -172,7 +172,7 @@
             "City": "Helsinki Railway Station",
             "Charger_Type": "Fast CCS connector",
             "Charger_availability": "available",
-            "price": "0,18€/kWh"
+            "price": 0.006666
 
 
         },
@@ -183,7 +183,7 @@
             "City": "Salo gas station",
             "Charger_Type": "Fast CCS connector",
             "Charger_availability": "available",
-            "price": "0,18€/kWh"
+            "price": 0.006666
 
 
         },
@@ -194,7 +194,7 @@
             "City": "Salo gas station",
             "Charger_Type": "Slow Type 2 Connector",
             "Charger_availability": "available",
-            "price": "0,20€/min"
+            "price": 0.003333
 
 
         },
@@ -205,7 +205,7 @@
             "City": "Viitasaari ABC gas station",
             "Charger_Type": "Fast CCS connector",
             "Charger_availability": "available",
-            "price": "0,18€/kWh"
+            "price": 0.006666
 
 
         },
@@ -216,7 +216,7 @@
             "City": "Haapavesi Neste Oil",
             "Charger_Type": "Fast CCS connector",
             "Charger_availability": "available",
-            "price": "0,18€/kWh"
+            "price": 0.006666
 
 
         }

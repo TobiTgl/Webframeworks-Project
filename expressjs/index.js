@@ -40,7 +40,7 @@ app.get('/chargers', (req, res) => {
 
 app.post('/:username/charge', (req,res) =>{
   const result = users.find(u=> u.username === req.params.username);
-  
+
   result.userChargingHistory.push({
     Date: date,
     Location: req.body.Location,
@@ -58,7 +58,8 @@ app.post('/register', (req,res) =>{
     id: uuidv4(),
     username: req.body.username,
     password: passwordHash,
-    email: req.body.email
+    email: req.body.email,
+    userChargingHistory: req.body.userChargingHistory
   });
 
   res.sendStatus(200);  

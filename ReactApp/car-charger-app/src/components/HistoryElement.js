@@ -7,7 +7,7 @@ export default function HistoryElement(props) {
                 Date: {props.Date} <br/>
                 Location: {props.Location}<br/>
                 Charger type: {props.Charger_Type}<br/>
-                Duration: {props.duration}min<br/>
+                Duration: {props.duration}s<br/>
                 Price: {props.price}€
             </p>
         </div>

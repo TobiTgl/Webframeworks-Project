@@ -4,8 +4,6 @@ import ChargerList from './components/ChargerList';
 import Menu from './components/Menu';
 import axios from 'axios';
 import GoogleMaps from './components/GoogleMaps';
-import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
-import Login from './components/Login';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import SignUp from './components/SignUp';
 import Charge from './components/Charge';
@@ -24,6 +22,7 @@ class App extends React.Component {
       isAuthenticated: false,
       typedUsername: "",
       typedPassword: "",
+      typedActivationCode:"",
       chargeHistory:"",
       signupUsername:"",
       signupPassword:"",
@@ -31,6 +30,11 @@ class App extends React.Component {
       userChargingHistory: {Date: "", Location: "", Charger_Type: "", duration: 0, price: 0},
       chargeTimer: 0,
       selectedCharger: "",
+      users:[],
+      intervalId: null,
+      timerRunning: false,
+      selectedChargerId: "",
+      selectedCharger_available: "",
 
     }
   }
@@ -42,6 +46,13 @@ class App extends React.Component {
         this.setState({ chargerarr: response.data })
       
       });
+      axios.get('http://localhost:4000/users')//this is a promise object
+      .then((response) => { //javascrip promise --then
+        this.setState({ users: response.data })
+      
+      });
+
+      
       
   }
 
@@ -77,6 +88,11 @@ class App extends React.Component {
     console.log(event.target.value);
   }
 
+  onActivationCodeChange = (event) => {
+    this.setState({ typedActivationCode: event.target.value });
+    console.log(event.target.value);
+  }
+
 
   onLogin = (currentUser) => {
     axios.post('http://localhost:4000/login', 
@@ -102,48 +118,82 @@ class App extends React.Component {
   }
 
   onSignup = () => {
-    
+
+    let result = this.state.users.find(u=> u.username == this.state.signupUsername);
+
+    console.log(result);
+    console.log(this.state.users);
+    if(result  === undefined){
     if(this.state.signupUsername != "" && this.state.signupPassword !=""&& this.state.signupEmail != ""){
     axios.post('http://localhost:4000/register',
     {
       username: this.state.signupUsername,
       password: this.state.signupPassword,
       email: this.state.signupEmail,
-      userChargingHistory: this.state.userChargingHistory
+      userChargingHistory: [],
     })
     .then(response =>{
-      console.log('Login successful');
+      console.log('Sign up successful');
     })
     .catch(error=>{console.log(error)})
     }
+  }else{
+  console.log('User already exists');
+    console.log(this.state.users);
+  }
   }
 
-  onChargeStop=()=>{
+  stopCharging=(currentUser)=>{
+   
+
     
-    axios.post('http://localhost:4000/TobiT/charge',
+    if(this.state.timerRunning){
+      clearInterval(this.state.intervalId);
+      this.setState({timerRunning: false});
+      this.setState({chargeTimer: 0})
+    }
+    
+    axios.post('http://localhost:4000/'+currentUser+'/charge',
     {
-      Location: "Test",//this.state.selectedCharger.City
-      Charger_Type: "Test",//this.state.selectedCharger.Charger_Type
-      duration: 69, //this.state.elapsedtime
-      price: 96 //this.state.selectedCharger.price*this.state.elapsedtime
+      Location: this.state.selectedCharger.City,
+      Charger_Type: this.state.selectedCharger.Charger_Type,
+      duration: this.state.chargeTimer,
+      price: Math.round((this.state.selectedCharger.price * this.state.chargeTimer)*100)/100
     })
     .then(response =>{
       console.log('Charge successful');
     })
     .catch(error=>{console.log(error)})
     
+  
   }
 
-  chargeTimer=()=>{
-  this.state.chargeTimer++
+  startCharging=()=>{
 
-  }
+    if(this.state.typedActivationCode == this.state.selectedCharger.id){
+      console.log('correct code');
+    if(this.state.timerRunning == false){
+      //this.setState({selectedCharger[6]: 'occupied'});
+      const startTime = Date.now() -this.state.chargeTimer;
+      this.state.intervalId = setInterval(() => {
+        this.setState({chargeTimer: Math.round((Date.now() - startTime)/1000), timerRunning: true}); 
+      }, 1000);
+      console.log(this.state.chargeTimer);
+    }
+  }else{console.log('wrong code');}
+  
+    
+}
 
   onChargerSelect=(id)=>{
-    console.log('click')
+    //console.log('click')
     console.log(id)
-    //let result = this.state.chargerarr.find(u=> u.id === id);
-    //this.setState({selectedCharger: result})
+    let result = this.state.chargerarr.find(u=> u.id === id);
+    console.log(result);
+    this.setState({selectedCharger: result})
+    console.log(this.state.selectedCharger);
+    this.setState({selectedChargerId : result.id});
+    console.log(this.state.selectedChargerId);
   }
 
 
@@ -160,8 +210,8 @@ render(){
         <Route exact path="/" render={props => <GoogleMaps chargers ={this.state.chargerarr.filter((charger) => charger.City.includes(this.state.chargerSearch)|| charger.Charger_Type.includes(this.state.chargerSearch))}/>}></Route>
         <Route exact path="/" render={props => <ChargerList chargers={this.state.chargerarr.filter((charger) => charger.City.includes(this.state.chargerSearch)|| charger.Charger_Type.includes(this.state.chargerSearch))}/>}></Route>
         <Route exact path="/signup" render={props => <SignUp signUpClick= {this.onSignup} signUpUsername={this.onSignUpUsernameChange} signUpPassword={this.onSignUpPasswordChange} signUpEmail={this.onSignUpEmailChange}/>}></Route>
-        <ProtectedRoute isAuthenticated={this.state.isAuthenticated} path="/history" exact render={(props)=><ChargingHistory  history={this.state.chargeHistory}/>}></ProtectedRoute>
-        <Route isAuthenticated={this.state.isAuthenticated} path="/charge" exact render={(props)=><Charge charger={this.state.chargerarr} id={this.state.chargerarr.id} selectedCharger={this.selectedCharger} onChargerSelect={this.onChargerSelect} elapsedtime={this.state.chargeTimer} chargeTimer={this.chargeTimer}/*onChargeStop={this.onChargeStop}*/ />}></Route>
+        <ProtectedRoute isAuthenticated={this.state.isAuthenticated} path="/history" exact render={(props)=><ChargingHistory history={this.state.chargeHistory}/>}></ProtectedRoute>
+        <ProtectedRoute isAuthenticated={this.state.isAuthenticated} path="/charge" exact render={(props)=><Charge currentUser={this.state.typedUsername} charger={this.state.chargerarr} id={this.state.chargerarr.id} selectedCharger={this.state.selectedCharger} onActivationCodeChange={this.onActivationCodeChange} onChargerSelect={this.onChargerSelect} elapsedtime={this.state.chargeTimer} startCharging={this.startCharging} stopCharging={this.stopCharging} />}></ProtectedRoute>
       </Router>  
         
     </>

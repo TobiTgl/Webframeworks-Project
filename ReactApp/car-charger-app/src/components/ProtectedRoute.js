@@ -15,5 +15,5 @@ export default function ProtectedRoute(props) {
     output = <Redirect to='/' />;
   }
 
-  return <React.Fragment>{ output }</React.Fragment>
+  return <>{ output }</>
 }
