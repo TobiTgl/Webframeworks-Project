@@ -49,7 +49,7 @@ export class MapContainer extends Component {
     return (
       <Map onClick={this.onMapClicked} containerStyle={containerStyle} google={this.props.google} zoom={5} initialCenter={{lat: 65.059386,lng: 25.466103,}}>
  
-        {this.props.chargers.map((chargers, index) => <Marker onClick={this.onMarkerClick} name={chargers.City} title={chargers.City} key={chargers.id} id={index} position={{lat: chargers.lat, lng: chargers.long}}  />)}
+        {this.props.chargers.map((chargers, index) => <Marker onClick={this.onMarkerClick} name={chargers.City} title={chargers.City} key={chargers.id} id={index} position={{lat: chargers.lat, lng: chargers.lng}}  />)}
           
         <InfoWindow
           marker={this.state.activeMarker}

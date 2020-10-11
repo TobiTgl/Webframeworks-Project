@@ -5,7 +5,7 @@ export default function HistoryElement(props) {
     return (
         <div>
             <p className={styles.history}>
-                Date: {props.Date} <br/>
+                Date: {props.Date + ' UTC'} <br/>
                 Location: {props.Location}<br/>
                 Charger type: {props.Charger_Type}<br/>
                 Duration: {props.duration}s<br/>

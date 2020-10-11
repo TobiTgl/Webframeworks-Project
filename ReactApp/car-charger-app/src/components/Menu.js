@@ -19,7 +19,7 @@ export default function Menu(props) {
                     </Link>}>
                 </ProtectedRoute>
                 <ProtectedRoute isAuthenticated={props.isAuthenticated} path="/" render={(props)=>
-                    <Link className={styles.subCat } to='/history'>
+                    <Link  className={styles.subCat } to='/history'>
                         <div>Charging History</div>
                     </Link>}>
                 </ProtectedRoute>
