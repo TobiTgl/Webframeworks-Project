@@ -144,7 +144,7 @@ app.listen(port, () => {
 
 /* DB init */
 
-/*
+
 Promise.all(
   [
       db.query(`CREATE TABLE IF NOT EXISTS users(
@@ -171,7 +171,7 @@ Promise.all(
       price DOUBLE
   );`)
     
-      // Add more table create statements if you need more tables
+      
   ]
 ).then(() => {
   console.log('database initialized');
@@ -180,4 +180,3 @@ Promise.all(
   });
 })
 .catch(error => console.log(error));
-*/
