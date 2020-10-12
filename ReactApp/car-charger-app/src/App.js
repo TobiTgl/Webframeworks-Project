@@ -43,12 +43,12 @@ class App extends React.Component {
 
   //cors used for securutiy prevents loading api data from different server
  componentDidMount() {
-    axios.get('http://34.203.236.162/chargers')//this is a promise object
+    axios.get('http://52.91.239.67/chargers')//this is a promise object
       .then((response) => { //javascrip promise --then
         this.setState({ chargerarr: response.data })
       
       });
-      axios.get('http://34.203.236.162/users')//this is a promise object
+      axios.get('http://52.91.239.67/users')//this is a promise object
       .then((response) => { //javascrip promise --then
         this.setState({ users: response.data })
       
@@ -92,7 +92,7 @@ class App extends React.Component {
   }
 
   onLogin = (currentUser) => {
-    axios.post('http://34.203.236.162/login', 
+    axios.post('http://52.91.239.67/login', 
                 {}, 
                 {auth:
                   {
@@ -108,7 +108,7 @@ class App extends React.Component {
 
   console.log('click')
 
-  axios.get('http://34.203.236.162/users/'+currentUser)//this is a promise object
+  axios.get('http://52.91.239.67/users/'+currentUser)//this is a promise object
   .then((response) => { //javascrip promise --then
 
     console.log(response.data)
@@ -133,7 +133,7 @@ onloadHistory = (currentUser)=>{
     console.log(this.state.users);
     if(result  === undefined){
       if(this.state.signupUsername != "" && this.state.signupPassword !=""&& this.state.signupEmail != ""){
-        axios.post('http://34.203.236.162/register',
+        axios.post('http://52.91.239.67/register',
         {
           username: this.state.signupUsername,
           password: this.state.signupPassword,
@@ -161,7 +161,7 @@ onloadHistory = (currentUser)=>{
       let price = Math.round((this.state.selectedCharger.price * this.state.chargeTimer)*100)/100
       console.log(price)
 
-      axios.post('http://34.203.236.162/'+currentUser+'/charge',
+      axios.post('http://52.91.239.67/'+currentUser+'/charge',
     {
       Location: this.state.selectedCharger.City,
       Charger_Type: this.state.selectedCharger.Charger_Type,
